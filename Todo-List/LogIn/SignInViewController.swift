@@ -68,6 +68,8 @@ class SignInViewController: UIViewController {
     
     @IBAction func forgotPassword(_ sender: Any) {
         
+        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewControllerID") as? ForgotPasswordViewController else { return }
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func back(_ sender: Any) {

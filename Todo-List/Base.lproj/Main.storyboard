@@ -436,6 +436,112 @@
             </objects>
             <point key="canvasLocation" x="2692" y="75.369458128078819"/>
         </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="9Sc-KI-zzg">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordViewControllerID" id="5wh-Lq-vhz" customClass="ForgotPasswordViewController" customModule="Todo_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XJT-gC-A67">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalHuggingPriority="251" image="circle-design" translatesAutoresizingMaskIntoConstraints="NO" id="NUP-KP-1J1">
+                                <rect key="frame" x="-50" y="-50" width="200" height="180"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="HBG-iE-RcI"/>
+                                    <constraint firstAttribute="width" constant="200" id="nxd-jc-ycl"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UMQ-UX-WUi">
+                                <rect key="frame" x="30" y="80" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="8eQ-Z8-2kI"/>
+                                    <constraint firstAttribute="height" constant="30" id="Ogh-Jl-IW7"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward.circle" catalog="system"/>
+                                <connections>
+                                    <action selector="back:" destination="5wh-Lq-vhz" eventType="touchUpInside" id="kd0-zv-bJ7"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVg-D0-BDD">
+                                <rect key="frame" x="84" y="170" width="207" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="U4C-jH-jmE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your Email address " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oVs-JK-vuh">
+                                <rect key="frame" x="27.666666666666657" y="260" width="320" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="4Eh-tQ-gcI"/>
+                                    <constraint firstAttribute="height" constant="50" id="CHi-Xd-ZcE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voj-am-eFA">
+                                <rect key="frame" x="72.666666666666686" y="350" width="230" height="44"/>
+                                <color key="backgroundColor" red="0.39215683940000001" green="0.52549022440000004" blue="0.49019610879999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="FFl-ZJ-SVm"/>
+                                    <constraint firstAttribute="height" constant="44" id="ryn-1t-aNc"/>
+                                </constraints>
+                                <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Reset Password">
+                                    <fontDescription key="titleFontDescription" name="Kefa-Regular" family="Kefa" pointSize="18"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="resetPassword:" destination="5wh-Lq-vhz" eventType="touchUpInside" id="WgP-y2-aT9"/>
+                                    <action selector="signIn:" destination="EfF-yC-N8W" eventType="touchUpInside" id="9WU-hN-UTU"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UUr-eX-6wY">
+                                <rect key="frame" x="87.666666666666686" y="414" width="200" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="UTK-LS-6NN"/>
+                                    <constraint firstAttribute="width" constant="200" id="fQg-Tv-Edd"/>
+                                </constraints>
+                                <color key="tintColor" red="0.39215683940000001" green="0.52156865600000002" blue="0.49411764740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Back to Sign In">
+                                    <fontDescription key="titleFontDescription" name="Kefa-Regular" family="Kefa" pointSize="12"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backToSignIn:" destination="5wh-Lq-vhz" eventType="touchUpInside" id="Snl-uJ-1DI"/>
+                                    <action selector="forgotPassword:" destination="EfF-yC-N8W" eventType="touchUpInside" id="1EH-s5-6Lk"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FVw-aQ-vji"/>
+                        <color key="backgroundColor" red="0.92941176889999999" green="0.92941176889999999" blue="0.92941176889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="lVg-D0-BDD" firstAttribute="top" secondItem="NUP-KP-1J1" secondAttribute="bottom" constant="40" id="6jQ-E6-QOf"/>
+                            <constraint firstItem="oVs-JK-vuh" firstAttribute="centerX" secondItem="FVw-aQ-vji" secondAttribute="centerX" id="6ku-jJ-qGc"/>
+                            <constraint firstItem="oVs-JK-vuh" firstAttribute="top" secondItem="lVg-D0-BDD" secondAttribute="bottom" constant="60" id="99e-U9-hGU"/>
+                            <constraint firstItem="NUP-KP-1J1" firstAttribute="top" secondItem="XJT-gC-A67" secondAttribute="top" constant="-50" id="9xC-BC-eJC"/>
+                            <constraint firstItem="NUP-KP-1J1" firstAttribute="leading" secondItem="XJT-gC-A67" secondAttribute="leading" constant="-50" id="GtA-tY-Khm"/>
+                            <constraint firstItem="UUr-eX-6wY" firstAttribute="top" secondItem="Voj-am-eFA" secondAttribute="bottom" constant="20" id="KPJ-dj-7a1"/>
+                            <constraint firstItem="Voj-am-eFA" firstAttribute="centerX" secondItem="FVw-aQ-vji" secondAttribute="centerX" id="LdW-Q0-nQv"/>
+                            <constraint firstItem="lVg-D0-BDD" firstAttribute="centerX" secondItem="FVw-aQ-vji" secondAttribute="centerX" id="P4Y-vC-nKj"/>
+                            <constraint firstItem="UUr-eX-6wY" firstAttribute="centerX" secondItem="FVw-aQ-vji" secondAttribute="centerX" id="Sta-q2-BRD"/>
+                            <constraint firstItem="Voj-am-eFA" firstAttribute="top" secondItem="oVs-JK-vuh" secondAttribute="bottom" constant="40" id="fHD-Oj-F5e"/>
+                            <constraint firstItem="UMQ-UX-WUi" firstAttribute="top" secondItem="FVw-aQ-vji" secondAttribute="top" constant="30" id="nEa-Q1-edZ"/>
+                            <constraint firstItem="UMQ-UX-WUi" firstAttribute="leading" secondItem="FVw-aQ-vji" secondAttribute="leading" constant="30" id="o5a-sw-1do"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="email" destination="oVs-JK-vuh" id="VtM-lg-7bj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tgi-vC-hQY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3313" y="75"/>
+        </scene>
         <!--Add Todo View Controller-->
         <scene sceneID="RWz-qG-NW5">
             <objects>
@@ -557,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ooQ-Ne-FiZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3322.4000000000001" y="74.630541871921181"/>
+            <point key="canvasLocation" x="1436" y="748"/>
         </scene>
         <!--Dashboard View Controller-->
         <scene sceneID="T0G-tP-ew8">
@@ -746,7 +852,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U0W-0g-d8c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4005.5999999999999" y="74.630541871921181"/>
+            <point key="canvasLocation" x="2066" y="748"/>
         </scene>
         <!--Todo View Controller-->
         <scene sceneID="SU1-32-hZc">
@@ -808,12 +914,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="giY-NZ-WWx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4687" y="75"/>
+            <point key="canvasLocation" x="2692" y="748"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jqb-0E-ARG">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ywd-Dg-oiK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Yh9-9f-Txo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMJ-rf-ShW">
@@ -825,6 +930,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="tQo-Zs-hXQ"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ywd-Dg-oiK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="628" y="75"/>
         </scene>

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC8308392A4C526A003364B2 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC8308382A4C526A003364B2 /* ForgotPasswordViewController.swift */; };
 		CCD0063D2A4B336600A0F327 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0063C2A4B336600A0F327 /* SignInViewController.swift */; };
 		CCD0063F2A4B75EF00A0F327 /* AddTodoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD0063E2A4B75EF00A0F327 /* AddTodoViewController.swift */; };
 		CCD006412A4B789F00A0F327 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD006402A4B789F00A0F327 /* DashboardViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CC8308382A4C526A003364B2 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		CCD0063C2A4B336600A0F327 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CCD0063E2A4B75EF00A0F327 /* AddTodoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTodoViewController.swift; sourceTree = "<group>"; };
 		CCD006402A4B789F00A0F327 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				CCE524AF2A4B0B7F004CBA0E /* HomeViewController.swift */,
 				CCE524B12A4B1437004CBA0E /* SignUpViewController.swift */,
 				CCD0063C2A4B336600A0F327 /* SignInViewController.swift */,
+				CC8308382A4C526A003364B2 /* ForgotPasswordViewController.swift */,
 			);
 			path = LogIn;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				CCD006462A4B875A00A0F327 /* Todo.swift in Sources */,
 				CCE524B22A4B1437004CBA0E /* SignUpViewController.swift in Sources */,
 				CCD0063D2A4B336600A0F327 /* SignInViewController.swift in Sources */,
+				CC8308392A4C526A003364B2 /* ForgotPasswordViewController.swift in Sources */,
 				CCD0063F2A4B75EF00A0F327 /* AddTodoViewController.swift in Sources */,
 				CCD0064C2A4BA1E600A0F327 /* TodoViewController.swift in Sources */,
 				CCE524B02A4B0B7F004CBA0E /* HomeViewController.swift in Sources */,

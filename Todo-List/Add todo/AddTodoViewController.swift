@@ -61,7 +61,6 @@ class AddTodoViewController: UIViewController {
     @IBAction func addToList(_ sender: Any) {
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DashboardViewControllerID") as? DashboardViewController else { return }
                 
-                // Добавьте значения task1, task2 и task3 в массив todos
                 if let task1 = task1.text, !task1.isEmpty {
                     vc.todos.append(Todo(title: task1))
                 }
@@ -74,9 +73,6 @@ class AddTodoViewController: UIViewController {
                 
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-//        guard let vc = storyboard?.instantiateViewController(withIdentifier: "DashboardViewControllerID") as? DashboardViewController else { return }
-//        self.navigationController?.pushViewController(vc, animated: true)
-//    }
     
     private func setupUiComponents() {
         customSetupUITextField(textField: task1)

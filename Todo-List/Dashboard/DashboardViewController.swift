@@ -48,8 +48,6 @@ class DashboardViewController: UIViewController {
         return vc
     }
     
-    
-    
     @IBSegueAction func todoViewControllerPlus(_ coder: NSCoder) -> TodoViewController? {
         let vc = TodoViewController(coder: coder)
         
@@ -76,9 +74,7 @@ extension DashboardViewController: UITableViewDelegate {
             
             let cell = tableView.cellForRow(at: indexPath) as! CheckTableViewCell
             cell.set(checked: todo.isComplete)
-            
             complete(true)
-            
             print("complete")
         }
         
@@ -88,11 +84,9 @@ extension DashboardViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
 }
 
 extension DashboardViewController: UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todos.count
@@ -103,9 +97,7 @@ extension DashboardViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "checked cell", for: indexPath) as! CheckTableViewCell
         
         cell.delegate = self
-        
         let todo = todos[indexPath.row]
-        
         cell.set(title: todo.title, checked: todo.isComplete)
         
         return cell
@@ -133,18 +125,13 @@ extension DashboardViewController: CheckTableViewCellDelegate {
         }
         let todo = todos[indexPath.row]
         let newTodo = Todo(title: todo.title, isComplete: checked)
-        
         todos[indexPath.row] = newTodo
     }
-    
 }
 
 extension DashboardViewController: TodoViewControllerDelegate {
     
     func todoViewController(_ vc: TodoViewController, didSaveTodo todo: Todo) {
-        
-        
-        
         dismiss(animated: true) {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 // update
@@ -156,11 +143,8 @@ extension DashboardViewController: TodoViewControllerDelegate {
                 self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
             }
         }
-        
     }
-    
 }
-
 
 extension DashboardViewController: UIAdaptivePresentationControllerDelegate {
     
@@ -169,5 +153,4 @@ extension DashboardViewController: UIAdaptivePresentationControllerDelegate {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }
-    
 }
