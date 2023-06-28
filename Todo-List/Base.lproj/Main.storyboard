@@ -762,7 +762,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IIH-WY-qqs">
-                                                            <rect key="frame" x="10" y="0.0" width="225" height="44"/>
+                                                            <rect key="frame" x="10" y="0.0" width="225" height="50"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="50" id="N1m-3w-v9a"/>
                                                             </constraints>
@@ -882,24 +882,35 @@
                                     <action selector="save:" destination="xIQ-G0-Qt5" eventType="touchUpInside" id="QEQ-4W-OJZ"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hG4-0X-x2x">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Example: I can't wake up 8 in the morning" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hG4-0X-x2x">
                                 <rect key="frame" x="20" y="80" width="335" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="qzp-tX-b24"/>
                                 </constraints>
                                 <color key="textColor" red="0.37647059560000001" green="0.50980395079999996" blue="0.48235297199999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Todo List" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgn-Vc-ZOG">
+                                <rect key="frame" x="20.000000000000007" y="40" width="121.66666666666669" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="04t-eP-Goc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Kefa-Regular" family="Kefa" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CdS-0s-hok"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="iAx-9U-TLs" firstAttribute="top" secondItem="CdS-0s-hok" secondAttribute="top" id="1Lx-pn-Vji"/>
+                            <constraint firstItem="Bgn-Vc-ZOG" firstAttribute="leading" secondItem="CdS-0s-hok" secondAttribute="leading" constant="20" id="4es-Tz-EZB"/>
                             <constraint firstItem="iAx-9U-TLs" firstAttribute="height" secondItem="mBK-FL-4cV" secondAttribute="height" multiplier="0.6" id="6Tt-Pm-cjQ"/>
                             <constraint firstItem="hG4-0X-x2x" firstAttribute="leading" secondItem="CdS-0s-hok" secondAttribute="leading" constant="20" id="92s-LN-Dmo"/>
                             <constraint firstItem="lSg-ze-KNS" firstAttribute="top" secondItem="CdS-0s-hok" secondAttribute="top" constant="10" id="9Nb-L2-JjL"/>
                             <constraint firstItem="CdS-0s-hok" firstAttribute="trailing" secondItem="iAx-9U-TLs" secondAttribute="trailing" id="LeI-pd-yLU"/>
+                            <constraint firstItem="hG4-0X-x2x" firstAttribute="top" secondItem="Bgn-Vc-ZOG" secondAttribute="bottom" constant="20" id="dV2-vO-QmH"/>
                             <constraint firstItem="hG4-0X-x2x" firstAttribute="top" secondItem="CdS-0s-hok" secondAttribute="top" constant="80" id="jPO-mm-uvJ"/>
                             <constraint firstItem="CdS-0s-hok" firstAttribute="trailing" secondItem="hG4-0X-x2x" secondAttribute="trailing" constant="20" id="kbz-TL-QTw"/>
                             <constraint firstItem="CdS-0s-hok" firstAttribute="trailing" secondItem="lSg-ze-KNS" secondAttribute="trailing" constant="10" id="ndU-Ya-Cf1"/>
