@@ -9,17 +9,22 @@ import UIKit
 
 class DashboardViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var todos = [
         Todo(title: "Make vanilla pudding."),
         Todo(title: "Put pudding in a mayo jar."),
         Todo(title: "Eat it in a public place."),
     ]
     
+    // MARK: - IBOutlets
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var startEditing: UIButton!
     @IBOutlet weak var addTask: UIButton!
     @IBOutlet weak var mainView: UIView!
     
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,17 +33,17 @@ class DashboardViewController: UIViewController {
         addTask.layer.cornerRadius = 15
     }
     
+    // MARK: - IBActions
     
     @IBAction func startEditing(_ sender: Any) {
         tableView.isEditing = !tableView.isEditing
-        
     }
     
     @IBSegueAction func todoViewController(_ coder: NSCoder) -> TodoViewController? {
         let vc = TodoViewController(coder: coder)
         
-        if let indexpath = tableView.indexPathForSelectedRow {
-            let todo = todos[indexpath.row]
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let todo = todos[indexPath.row]
             vc?.todo = todo
         }
         
@@ -51,10 +56,11 @@ class DashboardViewController: UIViewController {
     @IBSegueAction func todoViewControllerPlus(_ coder: NSCoder) -> TodoViewController? {
         let vc = TodoViewController(coder: coder)
         
-        if let indexpath = tableView.indexPathForSelectedRow {
-            let todo = todos[indexpath.row]
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let todo = todos[indexPath.row]
             vc?.todo = todo
         }
+        
         vc?.delegate = self
         vc?.presentationController?.delegate = self
         
@@ -62,6 +68,7 @@ class DashboardViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate
 
 extension DashboardViewController: UITableViewDelegate {
     
@@ -85,6 +92,8 @@ extension DashboardViewController: UITableViewDelegate {
         return .delete
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension DashboardViewController: UITableViewDataSource {
     
@@ -114,12 +123,13 @@ extension DashboardViewController: UITableViewDataSource {
         let todo = todos.remove(at: sourceIndexPath.row)
         todos.insert(todo, at: destinationIndexPath.row)
     }
-    
 }
+
+// MARK: - CheckTableViewCellDelegate
 
 extension DashboardViewController: CheckTableViewCellDelegate {
     
-    func checkTableViewCell(_ cell: CheckTableViewCell, didChagneCheckedState checked: Bool) {
+    func checkTableViewCell(_ cell: CheckTableViewCell, didChangeCheckedState checked: Bool) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
@@ -129,22 +139,26 @@ extension DashboardViewController: CheckTableViewCellDelegate {
     }
 }
 
+// MARK: - TodoViewControllerDelegate
+
 extension DashboardViewController: TodoViewControllerDelegate {
     
     func todoViewController(_ vc: TodoViewController, didSaveTodo todo: Todo) {
         dismiss(animated: true) {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                // update
+                // Update existing todo
                 self.todos[indexPath.row] = todo
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             } else {
-                // create
+                // Add new todo
                 self.todos.append(todo)
                 self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
             }
         }
     }
 }
+
+// MARK: - UIAdaptivePresentationControllerDelegate
 
 extension DashboardViewController: UIAdaptivePresentationControllerDelegate {
     

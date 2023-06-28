@@ -10,6 +10,7 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - UI Components
+    
     @IBOutlet weak var fullName: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -27,6 +28,7 @@ class SignUpViewController: UIViewController {
     }()
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUiComponents()
@@ -44,6 +46,7 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - @objc Functions
+    
     @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.3) {
             self.constraintsTextField.constant = 60
@@ -71,6 +74,7 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - @IBAction
+    
     @IBAction func signUp(_ sender: Any) {
         navigationController?.pushViewController(signInViewController, animated: true)
     }
@@ -80,7 +84,9 @@ class SignUpViewController: UIViewController {
     }
     
     // MARK: - UI Setup
+    
     private func setupUiComponents() {
+        // Configure the UI appearance of text fields
         customSetupUITextField(textField: fullName)
         customSetupUITextField(textField: email)
         customSetupUITextField(textField: password)
@@ -92,30 +98,33 @@ class SignUpViewController: UIViewController {
             textField.setLeftPaddingPoints(10)
         }
         
-        // TODO: - Aetup Label Tap
+        // Set up tap gesture recognizer for sign-in label
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.signInLabelTapped(_:)))
         signInLabel.isUserInteractionEnabled = true
         signInLabel.addGestureRecognizer(labelTap)
     }
     
-    // TODO: - Dismiss Keyboard
+    // Set up tap gesture recognizer to dismiss the keyboard
     private func dismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
     
     private func addObserverForKeyboardNotifications() {
+        // Add observers for keyboard show and hide notifications
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     private func removeObserverForKeyboardNotifications() {
+        // Remove observers for keyboard show and hide notifications
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 }
 
 // MARK: - Extensions
+
 extension UITextField {
     func setLeftPaddingPoints(_ amount: CGFloat) {
         let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))

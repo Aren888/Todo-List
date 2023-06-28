@@ -8,8 +8,12 @@
 import UIKit
 
 class ForgotPasswordViewController: UIViewController {
-
+    
+    // MARK: - UI Components
+    
     @IBOutlet weak var email: UITextField!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +21,10 @@ class ForgotPasswordViewController: UIViewController {
         dismissKeyboardTapGesture()
     }
     
+    // MARK: - IBActions
+    
     @IBAction func back(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-
     }
     
     @IBAction func resetPassword(_ sender: Any) {
@@ -27,12 +32,15 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func backToSignIn(_ sender: Any) {
+        // Push SignInViewController onto the navigation stack
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewControllerID") as? SignInViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // TODO: - Dismiss Keyboard
+    // MARK: - Dismiss Keyboard
+    
     private func dismissKeyboardTapGesture() {
+        // Set up tap gesture recognizer to dismiss the keyboard
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
@@ -41,9 +49,10 @@ class ForgotPasswordViewController: UIViewController {
         view.endEditing(true)
     }
     
+    // MARK: - UI Setup
+    
     private func customSetupUITextField() {
         email.layer.cornerRadius = email.frame.size.height / 3
         email.setLeftPaddingPoints(10)
-        
     }
 }

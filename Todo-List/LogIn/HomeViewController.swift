@@ -10,13 +10,21 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    // MARK: - @IBAction
+    // MARK: - Actions
+    
     @IBAction func getStarted(_ sender: Any) {
-        guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewControllerID") as? SignUpViewController else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        // Instantiate the "Main" storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Create an instance of SignUpViewController from the storyboard
+        if let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewControllerID") as? SignUpViewController {
+            // Push the SignUpViewController onto the navigation stack
+            navigationController?.pushViewController(signUpViewController, animated: true)
+        }
     }
 }

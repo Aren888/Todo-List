@@ -9,6 +9,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
     
+    // MARK: - UI Components
     
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
@@ -17,6 +18,8 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var labelConstraints: NSLayoutConstraint!
     @IBOutlet weak var imageConstraintsHeight: NSLayoutConstraint!
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         signInLabelTapped()
@@ -24,10 +27,14 @@ class SignInViewController: UIViewController {
         keyboardNotificationSetUp()
     }
     
+    // MARK: - Keyboard Notification Setup
+    
     private func keyboardNotificationSetUp() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    // MARK: - Keyboard Notification Handlers
     
     @objc func keyboardWillHide(_ notification: Notification) {
         UIView.animate(withDuration: 0.3) {
@@ -45,6 +52,8 @@ class SignInViewController: UIViewController {
         }
     }
     
+    // MARK: - SignIn Label Tapped
+    
     private func signInLabelTapped() {
         customSetupUITextField(textField: email)
         customSetupUITextField(textField: confirmPassword)
@@ -55,19 +64,22 @@ class SignInViewController: UIViewController {
             textField.setLeftPaddingPoints(10)
         }
         
-        // TODO: - Setup Label Tap
+        // Set up tap gesture recognizer for sign-up label
         let labelTap = UITapGestureRecognizer(target: self, action: #selector(self.signUpLabelTapped(_:)))
         signUpLabel.isUserInteractionEnabled = true
         signUpLabel.addGestureRecognizer(labelTap)
     }
     
     @objc func signUpLabelTapped(_ sender: UITapGestureRecognizer) {
+        // Push SignUpViewController onto the navigation stack
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "SignUpViewControllerID") as? SignUpViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    // MARK: - IBActions
+    
     @IBAction func forgotPassword(_ sender: Any) {
-        
+        // Push ForgotPasswordViewController onto the navigation stack
         guard let vc = self.storyboard?.instantiateViewController(withIdentifier: "ForgotPasswordViewControllerID") as? ForgotPasswordViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -78,12 +90,15 @@ class SignInViewController: UIViewController {
     
     @IBAction func signIn(_ sender: Any) {
         print("SignIn")
+        // Push AddTodoViewController onto the navigation stack
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "AddTodoViewControllerID") as? AddTodoViewController else { return }
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    // TODO: - Dismiss Keyboard
+    // MARK: - Dismiss Keyboard
+    
     private func dismissKeyboardTapGesture() {
+        // Set up tap gesture recognizer to dismiss the keyboard
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }

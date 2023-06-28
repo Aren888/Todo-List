@@ -9,25 +9,28 @@ import UIKit
 
 class AddTodoViewController: UIViewController {
     
+    // MARK: - UI Components
     
     @IBOutlet weak var task1: UITextField!
     @IBOutlet weak var task2: UITextField!
     @IBOutlet weak var task3: UITextField!
     
-    @IBOutlet weak var imageConstraint1: NSLayoutConstraint! 
-    @IBOutlet weak var imageConstraint2: NSLayoutConstraint! 
+    @IBOutlet weak var imageConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var imageConstraint2: NSLayoutConstraint!
     
-    @IBOutlet weak var labelConstraint1: NSLayoutConstraint! 
-    @IBOutlet weak var labelConstraint2: NSLayoutConstraint! 
-
+    @IBOutlet weak var labelConstraint1: NSLayoutConstraint!
+    @IBOutlet weak var labelConstraint2: NSLayoutConstraint!
+    
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         keyboardNotificationSetUp()
         setupUiComponents()
         dismissKeyboardTapGesture()
-     
     }
+    
+    // MARK: - Keyboard Notifications
     
     private func keyboardNotificationSetUp() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -54,25 +57,32 @@ class AddTodoViewController: UIViewController {
         }
     }
     
+    // MARK: - Dismiss Keyboard
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
     
+    // MARK: - @IBAction
+    
     @IBAction func addToList(_ sender: Any) {
+        // Push DashboardViewController onto the navigation stack
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "DashboardViewControllerID") as? DashboardViewController else { return }
-                
-                if let task1 = task1.text, !task1.isEmpty {
-                    vc.todos.append(Todo(title: task1))
-                }
-                if let task2 = task2.text, !task2.isEmpty {
-                    vc.todos.append(Todo(title: task2))
-                }
-                if let task3 = task3.text, !task3.isEmpty {
-                    vc.todos.append(Todo(title: task3))
-                }
-                
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+        
+        if let task1 = task1.text, !task1.isEmpty {
+            vc.todos.append(Todo(title: task1))
+        }
+        if let task2 = task2.text, !task2.isEmpty {
+            vc.todos.append(Todo(title: task2))
+        }
+        if let task3 = task3.text, !task3.isEmpty {
+            vc.todos.append(Todo(title: task3))
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - UI Setup
     
     private func setupUiComponents() {
         customSetupUITextField(textField: task1)
@@ -86,11 +96,14 @@ class AddTodoViewController: UIViewController {
         }
     }
     
-    // TODO: - Dismiss Keyboard
+    // MARK: - Dismiss Keyboard
+    
     private func dismissKeyboardTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    
+    // MARK: - Deinitialization
     
     deinit {
         NotificationCenter.default.removeObserver(self)
